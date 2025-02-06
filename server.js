@@ -103,7 +103,9 @@ app.delete("/api/game/delete", async (req, res) => {
     }
 });
 
-
+app.get('/', (req, res) => {
+    res.status(200).send('made by ishita');
+  });
 // starting the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
