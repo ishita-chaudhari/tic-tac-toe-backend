@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 // Import Routes
-const getGameRoute = require("./routes/get_route");
-const resetGameRoute = require("./routes/post_route");
-const moveGameRoute = require("./routes/put_route");
-const deleteGameRoute = require("./routes/delete_route");
+const get_route = require("./route/get_route");
+const post_route = require("./route/post_route");
+const put_route = require("./route/put_route");
+const delete_route = require("./route/delete_route");
 
 dotenv.config();
 
