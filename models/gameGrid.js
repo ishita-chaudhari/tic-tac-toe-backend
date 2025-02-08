@@ -1,13 +1,14 @@
-const Game = require("../models/gameGrid");
+const mongoose = require("mongoose");
 
-exports.getGame = async (req, res) => {
-    try {
-        let game = await Game.findOne();
-        if (!game) {
-            game = await Game.create({});
-        }
-        res.json({ gameState: game.gameState, currentPlayer: game.currentPlayer });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+const gameSchema = new mongoose.Schema({
+    gameState: { 
+        type: [[String]], 
+        default: [["", "", ""], ["", "", ""], ["", "", ""]] 
+    },
+    currentPlayer: { type: String, default: "X" }
+});
+
+const Game = mongoose.model("Game", gameSchema);
+
+module.exports = Game;
+
